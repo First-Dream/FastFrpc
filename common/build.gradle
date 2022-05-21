@@ -1,0 +1,3 @@
+tasks.withType(JavaCompile) {
+    options.release = 8
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "fastfrpcfabric",
+  "version": "1.0",
+  "name": "Fast Frpc",
+  "description": "一键内网穿透联机",
+  "authors": [
+    "初梦"
+  ],
+  "contact": {},
+  "license": "unlicense",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "one.qwq.fastfrpcfabric.FastFrpcFabric"
+    ],
+    "main": [
+    ],
+    "modmenu": [
+      "one.qwq.fastfrpcfabric.ModMenuBridge"
+    ]
+  },
+  "mixins": [
+    "fastfrpcfabric.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=1.17"
+  },
+  "recommends": {
+    "modmenu": ">=2.0.0",
+    "cloth-config": ">=5.0.0"
+  }
+}

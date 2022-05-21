@@ -1,0 +1,46 @@
+import net.fabricmc.loom.task.RemapJarTask
+
+plugins {
+    id 'fabric-loom' version '0.12-SNAPSHOT'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+tasks.withType(JavaCompile) {
+    options.release = 8
+}
+
+dependencies {
+    implementation project(":common")
+
+    minecraft "com.mojang:minecraft:1.16.5"
+    mappings "net.fabricmc:yarn:1.16.5+build.8:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.42.0+1.16"
+
+    modImplementation "com.terraformersmc:modmenu:1.16.22"
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:4.14.64")
+}
+
+shadowJar {
+    archiveFileName = "FastFrpc-Fabric-1.16-${project.mod_version}-dev.jar"
+
+    dependencies {
+        include(project(':common'))
+
+        exclude '/mappings/*'
+    }
+}
+
+task remappedShadowJar(type: RemapJarTask) {
+    dependsOn tasks.shadowJar
+    input = tasks.shadowJar.archiveFile
+    addNestedDependencies = true
+    archiveFileName = "FastFrpc-Fabric-1.16-${project.mod_version}.jar"
+}
+
+tasks.assemble.dependsOn tasks.remappedShadowJar
+
+artifacts {
+    archives remappedShadowJar
+    shadow shadowJar
+}

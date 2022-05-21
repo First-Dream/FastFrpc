@@ -1,0 +1,23 @@
+allprojects {
+    group = 'one.qwq'
+    version = mod_version
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url "https://maven.shedaniel.me/" }
+        maven { url "https://maven.terraformersmc.com/" }
+    }
+
+    configurations {
+        compileClasspath
+    }
+}
