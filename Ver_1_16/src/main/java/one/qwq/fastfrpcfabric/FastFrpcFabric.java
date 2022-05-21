@@ -4,6 +4,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.SelectionManager;
 import net.minecraft.text.LiteralText;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class FastFrpcFabric extends ClientCommon implements ClientModInitializer {
     @Override
@@ -12,18 +14,18 @@ public class FastFrpcFabric extends ClientCommon implements ClientModInitializer
         new Initialize();
     }
 
-//    private static final Logger LOGGER = LoggerFactory.getLogger("FastFrpc");
+    private static final Logger LOGGER = LogManager.getLogger();
 
     private final MinecraftClient client = MinecraftClient.getInstance();
 
     @Override
     public void logInfo(String info) {
-//        LOGGER.info(info);
+        LOGGER.info(info);
     }
 
     @Override
     public void logError(String error, Throwable throwable) {
-//        LOGGER.error(error, throwable);
+        LOGGER.error(error, throwable);
     }
 
     @Override
