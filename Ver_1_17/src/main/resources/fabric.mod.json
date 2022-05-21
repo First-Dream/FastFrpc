@@ -7,8 +7,10 @@
   "authors": [
     "初梦"
   ],
-  "contact": {},
-  "license": "unlicense",
+  "contact": {
+    "sources": "https://github.com/First-Dream/FastFrpc"
+  },
+  "license": "Mozilla Public License 2.0",
   "environment": "*",
   "entrypoints": {
     "client": [
