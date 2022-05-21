@@ -14,7 +14,7 @@ public class FastFrpcFabric extends ClientCommon implements ClientModInitializer
         new Initialize();
     }
 
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger("FastFrpc");
 
     private final MinecraftClient client = MinecraftClient.getInstance();
 

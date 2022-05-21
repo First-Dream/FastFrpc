@@ -28,10 +28,8 @@ public class Initialize {
         try {
             if (!new File(os.frpc).exists()) {
                 ClientCommon.clientCommon.logInfo("Extracting " + os.frpc);
-                BufferedInputStream bufferedInputStream;
-                BufferedOutputStream bufferedOutputStream;
-                bufferedInputStream = new BufferedInputStream(Initialize.class.getClassLoader().getResourceAsStream(os.frpc));
-                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(os.frpc));
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(Initialize.class.getClassLoader().getResourceAsStream(os.frpc));
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(os.frpc));
                 byte[] bytes = new byte[4096];
                 while (bufferedInputStream.read(bytes) != -1) {
                     bufferedOutputStream.write(bytes);
@@ -39,7 +37,7 @@ public class Initialize {
                 bufferedOutputStream.flush();
                 bufferedOutputStream.close();
 
-                ClientCommon.clientCommon.logInfo("Extracted" + os.frpc);
+                ClientCommon.clientCommon.logInfo("Extracted " + os.frpc);
             }
         } catch (Throwable throwable) {
             ClientCommon.clientCommon.logError("Failed to extract " + os.frpc + ": ", throwable);
@@ -48,10 +46,8 @@ public class Initialize {
         try {
             if (!new File(os.npc).exists()) {
                 ClientCommon.clientCommon.logInfo("Extracting " + os.npc);
-                BufferedInputStream bufferedInputStream;
-                BufferedOutputStream bufferedOutputStream;
-                bufferedInputStream = new BufferedInputStream(Initialize.class.getClassLoader().getResourceAsStream(os.npc));
-                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(os.npc));
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(Initialize.class.getClassLoader().getResourceAsStream(os.npc));;
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(os.npc));
                 byte[] bytes = new byte[4096];
                 while (bufferedInputStream.read(bytes) != -1) {
                     bufferedOutputStream.write(bytes);
@@ -59,7 +55,7 @@ public class Initialize {
                 bufferedOutputStream.flush();
                 bufferedOutputStream.close();
 
-                ClientCommon.clientCommon.logInfo("Extracted" + os.npc);
+                ClientCommon.clientCommon.logInfo("Extracted " + os.npc);
             }
         } catch (Throwable throwable) {
             ClientCommon.clientCommon.logError("Failed to extract " + os.npc + ": ", throwable);
