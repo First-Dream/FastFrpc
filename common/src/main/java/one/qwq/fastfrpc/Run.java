@@ -15,7 +15,7 @@ public class Run implements Runnable {
             ClientCommon.clientCommon.copyToClipboard(Config.serverAddr + ":" + Config.remotePort);
             ClientCommon.clientCommon.sendMsg("连接地址已自动复制到剪贴板");
 
-            if (Config.core == Core.FRP) {
+            if (Config.core == Config.Core.FRP) {
                 try (BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get("frpc.ini"), StandardCharsets.UTF_8)) {
                     bufferedWriter.write(
                             "[common]\n" +
@@ -53,7 +53,7 @@ public class Run implements Runnable {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String string;
 
-            if (Config.core == Core.FRP) {
+            if (Config.core == Config.Core.FRP) {
                 while (true) {
                     string = bufferedReader.readLine();
                     if (string == null) break;
