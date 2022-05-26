@@ -1,4 +1,4 @@
-package one.qwq.fastfrpcfabric;
+package one.qwq.fastfrpc;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.MinecraftClient;

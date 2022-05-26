@@ -8,8 +8,11 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'FastFrpcFabric'
+rootProject.name = 'FastFrpc'
+
+include 'common'
 include 'Ver_1_17'
 include 'Ver_1_16'
-include 'common'
+//include 'Forge_1_12'
+include 'Forge_1_16'
 

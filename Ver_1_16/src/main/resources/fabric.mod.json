@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "fastfrpcfabric",
   "version": "1.0",
-  "name": "Fast Frpc",
+  "name": "Fast Frpc Fabric 1.16",
   "description": "一键内网穿透联机",
   "authors": [
     "初梦"
@@ -14,12 +14,12 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "one.qwq.fastfrpcfabric.FastFrpcFabric"
+      "one.qwq.fastfrpc.FastFrpcFabric"
     ],
     "main": [
     ],
     "modmenu": [
-      "one.qwq.fastfrpcfabric.ModMenuBridge"
+      "one.qwq.fastfrpc.ModMenuBridge"
     ]
   },
   "mixins": [

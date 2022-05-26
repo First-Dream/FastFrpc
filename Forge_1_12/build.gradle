@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2' }
+        maven { url 'https://maven.minecraftforge.net/' }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.github.johnrengelman:shadow:7+'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+minecraft {
+    mappings channel: 'snapshot', version: '20171003-1.12'
+}
+
+dependencies {
+    implementation project(":common")
+
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+}
+
+reobf {
+    shadowJar {}
+}
+
+shadowJar {
+    archiveFileName = "FastFrpc-Forge-1.12-${project.mod_version}.jar"
+
+    dependencies {
+        include(project(':common'))
+    }
+}
+
+artifacts {
+    shadow shadowJar
+}

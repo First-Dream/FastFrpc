@@ -1,9 +1,9 @@
-package one.qwq.fastfrpcfabric.mixin;
+package one.qwq.fastfrpc.mixin;
 
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.world.GameMode;
-import one.qwq.fastfrpcfabric.Config;
-import one.qwq.fastfrpcfabric.Run;
+import one.qwq.fastfrpc.Config;
+import one.qwq.fastfrpc.Run;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
