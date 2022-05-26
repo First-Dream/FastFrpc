@@ -85,14 +85,14 @@ public class Config {
             ClientCommon.clientCommon.logError("Failed to save config file: ", exception);
         }
     }
-}
 
-enum Core {
-    FRP,
-    NPS,
-}
+    public enum Core {
+        FRP,
+        NPS,
+    }
 
-enum Protocol {
-    TCP,
-    KCP,
+    public enum Protocol {
+        TCP,
+        KCP,
+    }
 }

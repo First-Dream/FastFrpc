@@ -79,7 +79,9 @@ mixin {
     config "fastfrpcforge.mixins.json"
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets.main.resources {
+    srcDirs 'src/generated/resources', '../common/src/main/resources'
+}
 
 repositories {
 }
