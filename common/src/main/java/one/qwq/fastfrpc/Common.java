@@ -1,24 +1,24 @@
 package one.qwq.fastfrpc;
 
-public abstract class ClientCommon {
-    public static ClientCommon clientCommon;
+public abstract class Common {
+    public static Common common;
 
-    public void setClientCommon(ClientCommon clientCommon) {
-        ClientCommon.clientCommon = clientCommon;
+    public void setCommon(Common common) {
+        Common.common = common;
     }
 
     /**
      * 记录普通日志
      * @param info 日志
      */
-    public abstract void logInfo(String info);
+    public abstract void log(String info);
 
     /**
      * 记录错误日志
      * @param error 日志
      * @param throwable 堆栈跟踪
      */
-    public abstract void logError(String error, Throwable throwable);
+    public abstract void log(String error, Throwable throwable);
 
     /**
      * 在客户端显示消息

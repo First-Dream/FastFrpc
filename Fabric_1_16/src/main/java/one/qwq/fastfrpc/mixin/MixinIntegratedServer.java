@@ -20,8 +20,8 @@ public abstract class MixinIntegratedServer {
         thread.start();
     }
 
-    @Inject(method = "shutdown", at = @At(value = "HEAD"))
-    private void shutdown(CallbackInfo ci) {
+    @Inject(method = "stop", at = @At(value = "HEAD"))
+    private void shutdown(boolean bl, CallbackInfo ci) {
         if (Run.process != null && Run.process.isAlive()) {
             Run.process.destroy();
         }

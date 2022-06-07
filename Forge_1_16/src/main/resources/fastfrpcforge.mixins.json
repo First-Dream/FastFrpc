@@ -1,10 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "one.qwq.fastfrpcforge.mixin",
+  "package": "one.qwq.fastfrpc.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "fastfrpcforge.refmap.json",
   "mixins": [
+    "MixinIntegratedServer"
   ],
   "client": [
   ],

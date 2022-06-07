@@ -12,7 +12,7 @@ public class Initialize {
     public Initialize() {
         try {
             String osName = System.getProperty("os.name");
-            ClientCommon.clientCommon.logInfo("System: " + osName);
+            Common.common.log("System: " + osName);
             osName = osName.toLowerCase();
             if (osName.contains("linux")) {
                 os = OS.LINUX;
@@ -22,12 +22,12 @@ public class Initialize {
                 os = OS.WINDOWS;
             }
         } catch (Throwable throwable) {
-            ClientCommon.clientCommon.logError("Failed to get system: ", throwable);
+            Common.common.log("Failed to get system: ", throwable);
         }
 
         try {
             if (!new File(os.frpc).exists()) {
-                ClientCommon.clientCommon.logInfo("Extracting " + os.frpc);
+                Common.common.log("Extracting " + os.frpc);
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(Initialize.class.getClassLoader().getResourceAsStream(os.frpc));
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(os.frpc));
                 byte[] bytes = new byte[4096];
@@ -37,15 +37,15 @@ public class Initialize {
                 bufferedOutputStream.flush();
                 bufferedOutputStream.close();
 
-                ClientCommon.clientCommon.logInfo("Extracted " + os.frpc);
+                Common.common.log("Extracted " + os.frpc);
             }
         } catch (Throwable throwable) {
-            ClientCommon.clientCommon.logError("Failed to extract " + os.frpc + ": ", throwable);
+            Common.common.log("Failed to extract " + os.frpc + ": ", throwable);
         }
 
         try {
             if (!new File(os.npc).exists()) {
-                ClientCommon.clientCommon.logInfo("Extracting " + os.npc);
+                Common.common.log("Extracting " + os.npc);
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(Initialize.class.getClassLoader().getResourceAsStream(os.npc));;
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(os.npc));
                 byte[] bytes = new byte[4096];
@@ -55,10 +55,10 @@ public class Initialize {
                 bufferedOutputStream.flush();
                 bufferedOutputStream.close();
 
-                ClientCommon.clientCommon.logInfo("Extracted " + os.npc);
+                Common.common.log("Extracted " + os.npc);
             }
         } catch (Throwable throwable) {
-            ClientCommon.clientCommon.logError("Failed to extract " + os.npc + ": ", throwable);
+            Common.common.log("Failed to extract " + os.npc + ": ", throwable);
         }
     }
 }

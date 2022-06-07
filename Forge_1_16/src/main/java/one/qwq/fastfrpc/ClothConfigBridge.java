@@ -1,18 +1,14 @@
-package one.qwq.fastfrpcforge;
-
-//import com.terraformersmc.modmenu.api.ConfigScreenFactory;
+package one.qwq.fastfrpc;
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.util.text.StringTextComponent;
-import one.qwq.fastfrpc.Config;
-//import net.minecraft.text.LiteralText;
 
 import java.util.Random;
 
 public class ClothConfigBridge {
-    public Screen create(Screen parent) {
+    public static Screen create(Screen parent) {
         ConfigBuilder config = ConfigBuilder.create()
                 .setParentScreen(parent)
                 .setTitle(new StringTextComponent("内网穿透设置"))

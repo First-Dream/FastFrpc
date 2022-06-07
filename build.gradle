@@ -1,6 +1,6 @@
 allprojects {
     group = 'one.qwq'
-    version = mod_version
+    version = '1.0'
 
     apply plugin: 'java'
     apply plugin: 'idea'
@@ -12,10 +12,10 @@ allprojects {
     }
 
     repositories {
-        mavenCentral()
         maven { url "https://maven.shedaniel.me/" }
         maven { url "https://maven.terraformersmc.com/" }
         maven { url 'https://maven.minecraftforge.net/' }
+        mavenCentral()
     }
 
     configurations {

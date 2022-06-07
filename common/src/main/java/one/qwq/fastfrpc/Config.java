@@ -57,7 +57,7 @@ public class Config {
             Properties properties = new Properties();
             properties.load(bufferedReader);
 
-            Config.core = Core.valueOf((properties.getProperty("engine")).toUpperCase());
+            Config.core = Core.valueOf((properties.getProperty("core")).toUpperCase());
             Config.protocol = Protocol.valueOf(properties.getProperty("protocol").toUpperCase());
             Config.serverAddr = properties.getProperty("server_addr");
             Config.serverPort = Integer.parseInt(properties.getProperty("server_port"));
@@ -71,7 +71,7 @@ public class Config {
 
     public static void save() {
         Properties properties = new Properties();
-        properties.put("engine", String.valueOf(Config.core));
+        properties.put("core", String.valueOf(Config.core));
         properties.put("protocol", String.valueOf(Config.protocol));
         properties.put("server_addr", String.valueOf(Config.serverAddr));
         properties.put("server_port", String.valueOf(Config.serverPort));
@@ -82,7 +82,7 @@ public class Config {
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
             properties.store(bufferedWriter, "FastFrpc Config File");
         } catch (Exception exception) {
-            ClientCommon.clientCommon.logError("Failed to save config file: ", exception);
+            Common.common.log("Failed to save config file: ", exception);
         }
     }
 

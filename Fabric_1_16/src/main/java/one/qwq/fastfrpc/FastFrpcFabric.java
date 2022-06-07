@@ -7,10 +7,10 @@ import net.minecraft.text.LiteralText;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class FastFrpcFabric extends ClientCommon implements ClientModInitializer {
+public class FastFrpcFabric extends Common implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        setClientCommon(this);
+        setCommon(this);
         new Initialize();
     }
 
@@ -19,12 +19,12 @@ public class FastFrpcFabric extends ClientCommon implements ClientModInitializer
     private final MinecraftClient client = MinecraftClient.getInstance();
 
     @Override
-    public void logInfo(String info) {
+    public void log(String info) {
         LOGGER.info(info);
     }
 
     @Override
-    public void logError(String error, Throwable throwable) {
+    public void log(String error, Throwable throwable) {
         LOGGER.error(error, throwable);
     }
 
