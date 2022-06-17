@@ -48,11 +48,8 @@ public class Run implements Runnable {
                 process = Runtime.getRuntime().exec("./" + Initialize.os.npc + " -config=npc.conf");
             }
 
-            InputStream inputStream = process.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
             String string;
-
             if (Config.core == Config.Core.FRP) {
                 while (true) {
                     string = bufferedReader.readLine();
@@ -70,6 +67,7 @@ public class Run implements Runnable {
             Common.common.log("Reverse proxy stopped");
         } catch (Throwable throwable) {
             Common.common.log("Failed to start: ", throwable);
+            Common.common.sendMsg("内网穿透启动失败，请向开发者提交日志");
         }
     }
 }

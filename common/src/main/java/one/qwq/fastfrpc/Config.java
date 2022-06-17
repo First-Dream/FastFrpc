@@ -53,7 +53,8 @@ public class Config {
     private static final Path path = Paths.get("config", "fastfrpc.properties");
 
     static {
-        try (BufferedReader bufferedReader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+        try {
+            BufferedReader bufferedReader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
             Properties properties = new Properties();
             properties.load(bufferedReader);
 
@@ -70,16 +71,20 @@ public class Config {
     }
 
     public static void save() {
-        Properties properties = new Properties();
-        properties.put("core", String.valueOf(Config.core));
-        properties.put("protocol", String.valueOf(Config.protocol));
-        properties.put("server_addr", String.valueOf(Config.serverAddr));
-        properties.put("server_port", String.valueOf(Config.serverPort));
-        properties.put("remote_port", String.valueOf(Config.remotePort));
-        properties.put("use_token", String.valueOf(Config.useToken));
-        properties.put("token", String.valueOf(Config.token));
+        try {
+            Properties properties = new Properties();
+            properties.put("core", String.valueOf(Config.core));
+            properties.put("protocol", String.valueOf(Config.protocol));
+            properties.put("server_addr", String.valueOf(Config.serverAddr));
+            properties.put("server_port", String.valueOf(Config.serverPort));
+            properties.put("remote_port", String.valueOf(Config.remotePort));
+            properties.put("use_token", String.valueOf(Config.useToken));
+            properties.put("token", String.valueOf(Config.token));
 
-        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
+            if (!Files.exists(path.getParent())) Files.createDirectory(path.getParent());
+            if (!Files.exists(path)) Files.createFile(path);
+
+            BufferedWriter bufferedWriter = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
             properties.store(bufferedWriter, "FastFrpc Config File");
         } catch (Exception exception) {
             Common.common.log("Failed to save config file: ", exception);

@@ -14,7 +14,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 java {
-    archivesBaseName = 'fastfrpcforge'
+    archivesBaseName = 'FastFrpc-Forge-1.16'
     toolchain.languageVersion = JavaLanguageVersion.of(8)
 }
 
@@ -81,9 +81,6 @@ mixin {
 
 sourceSets.main.resources {
     srcDirs 'src/generated/resources', '../common/src/main/resources'
-}
-
-repositories {
 }
 
 jar {

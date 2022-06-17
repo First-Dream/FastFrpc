@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "fastfrpcfabric",
-  "version": "1.0",
+  "version": "${version}",
   "name": "Fast Frpc Fabric 1.17-1.18",
   "description": "一键内网穿透联机",
   "authors": [
@@ -26,7 +26,7 @@
     "fastfrpcfabric.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=1.17"
+    "minecraft": "1.17.*-1.18.*"
   },
   "recommends": {
     "modmenu": ">=2.0.0",

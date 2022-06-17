@@ -2,11 +2,11 @@ import net.fabricmc.loom.task.RemapJarTask
 
 plugins {
     id 'fabric-loom' version '0.12-SNAPSHOT'
-    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'com.github.johnrengelman.shadow' version '7.+'
 }
 
-tasks.withType(JavaCompile) {
-    options.release = 8
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 8
 }
 
 dependencies {
@@ -19,6 +19,14 @@ dependencies {
 
     modImplementation "com.terraformersmc:modmenu:1.16.22"
     modImplementation("me.shedaniel.cloth:cloth-config-fabric:4.14.64")
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
 }
 
 shadowJar {

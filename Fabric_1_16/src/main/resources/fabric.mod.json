@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "fastfrpcfabric",
-  "version": "1.0",
+  "version": "${version}",
   "name": "Fast Frpc Fabric 1.16",
   "description": "一键内网穿透联机",
   "authors": [
