@@ -3,21 +3,22 @@ package one.qwq.fastfrpc;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod("fastfrpcforge")
-public class FastFrpcForge extends Common{
+public class FastFrpcForge extends Common {
     public FastFrpcForge() {
         setCommon(this);
         new Initialize();
 
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> FastFrpcForge::registerConfig);
+        if (ModList.get().isLoaded("cloth-config"))
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> FastFrpcForge::registerConfig);
     }
 
     static void registerConfig() {
